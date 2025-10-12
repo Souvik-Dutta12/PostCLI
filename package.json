@@ -1,0 +1,29 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Developer Productivity Command Line Suite",
+  "homepage": "https://github.com/Souvik-Dutta12/DevGuruCLI#readme",
+  "bugs": {
+    "url": "https://github.com/Souvik-Dutta12/DevGuruCLI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Souvik-Dutta12/DevGuruCLI.git"
+  },
+  "license": "ISC",
+  "author": "Souvik Dutta",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.1",
+    "figlet": "^1.9.3",
+    "ora": "^9.0.0"
+  },
+  "bin": {
+    "devguru": "./bin/devgurucli.js"
+  }
+}
