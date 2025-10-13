@@ -30,9 +30,12 @@
     "commander": "^14.0.1",
     "conf": "^15.0.2",
     "figlet": "^1.9.3",
+    "formdata-node": "^6.0.3",
+    "fs": "^0.0.1-security",
     "inquirer": "^12.9.6",
     "listr2": "^9.0.4",
-    "ora": "^9.0.0"
+    "ora": "^9.0.0",
+    "undici": "^7.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",

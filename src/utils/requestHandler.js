@@ -2,21 +2,66 @@ import axios from "axios";
 import boxen from "boxen";
 import chalk from "chalk";
 import ora from "ora";
+import fs from "fs";
+import { FormData, Blob } from "formdata-node";
+import { fileFromPath } from "formdata-node/file-from-path";
 
 /**
- * Make an HTTP request with spinner, color-coded output, and Boxen formatting
+ * Make API Request with PostCLI
  * Supports GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
+ * Auto-detects file uploads using "file:" prefix → multipart/form-data
  */
-export const makeRequest = async ({ method, url, data, headers }) => {
-  // Start spinner
-  const spinner = ora(`Sending ${method} request to ${url}`).start();
+
+export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
+  const spinner = ora(chalk.cyanBright(`Sending ${method} request to ${url}`)).start();
 
   try {
-    const response = await axios({ method, url, data, headers });
-    spinner.succeed(`${method} request successful!`);
+    let isFormData = false;
+    let finalData = data;
 
-    // Color codes for methods
-    const methodColor = {
+    // 🧩 Build FormData only if needed
+    const form = new FormData();
+
+    for (const key in data) {
+      const value = data[key];
+
+      if (typeof value === "string" && value.startsWith("file:")) {
+        // File handling
+        const filePath = value.replace("file:", "").trim();
+        if (!fs.existsSync(filePath)) throw new Error(`File not found: ${filePath}`);
+
+        const file = await fileFromPath(filePath);
+        form.set(key, file);
+        isFormData = true;
+      } else {
+        try {
+          // Allow arrays/objects
+          const parsed = JSON.parse(value);
+          form.set(key, JSON.stringify(parsed));
+          isFormData = true;
+        } catch {
+          form.set(key, value);
+        }
+      }
+    }
+
+    if (isFormData) {
+      finalData = form;
+      headers = { ...headers, ...form.headers };
+    }
+
+    // 🌐 Axios request
+    const response = await axios({
+      method,
+      url,
+      data: finalData,
+      headers,
+      maxBodyLength: Infinity,
+    });
+
+    spinner.succeed(chalk.greenBright(`${method} request successful!`));
+
+    const methodColors = {
       GET: "#00B894",
       POST: "#FFCA36",
       PUT: "#00A2FF",
@@ -26,49 +71,46 @@ export const makeRequest = async ({ method, url, data, headers }) => {
       HEAD: "#E05DE5",
     };
 
-    // Status code color
     const statusColor =
       response.status >= 200 && response.status < 300 ? "#4CAF50" : "#FF3B30";
 
-    // Handle HEAD/OPTIONS differently (headers only)
-    if (method === "HEAD" || method === "OPTIONS") {
-      console.log(
-        boxen(
-          `${chalk.hex(methodColor[method])(method)} ${chalk.bold(url)}\n` +
-            `Headers:\n${chalk.hex("#CCCCCC")(
-              JSON.stringify(response.headers, null, 2)
-            )}`,
-          { padding: 1, borderColor: "cyan", borderStyle: "round" }
-        )
-      );
-    } else {
-      // Regular requests with response data
-      console.log(
-        boxen(
-          `${chalk.hex(methodColor[method])(method)} ${chalk.bold(url)}\n` +
-            `Status: ${chalk.hex(statusColor)(response.status)}\n` +
-            `Response:\n${chalk.hex("#CCCCCC")(
-              JSON.stringify(response.data, null, 2)
-            )}`,
-          { padding: 1, borderColor: "cyan", borderStyle: "round" }
-        )
-      );
-    }
+    console.log(
+      boxen(
+        `${chalk.hex(methodColors[method])(method)} ${chalk.bold(url)}\n` +
+          `Status: ${chalk.hex(statusColor)(response.status)}\n\n` +
+          `Response:\n${chalk.hex("#CCCCCC")(JSON.stringify(response.data, null, 2))}`,
+        {
+          padding: 1,
+          borderColor: "#9B5DE5",
+          borderStyle: "round",
+          title: chalk.bold.hex("#FFCA36")("📦 POSTCLI RESPONSE"),
+        }
+      )
+    );
 
     return response.data;
   } catch (error) {
-    spinner.fail(`${method} request failed!`);
+    spinner.fail(chalk.redBright(`${method} request failed!`));
 
     console.log(
       boxen(
-        chalk.red(
-          `Error: ${
+        chalk.redBright(
+          `❌ Error: ${
             error.response
-              ? error.response.status + " " + error.response.statusText
+              ? `${error.response.status} ${error.response.statusText}`
               : error.message
+          }\n\n${
+            error.response?.data
+              ? JSON.stringify(error.response.data, null, 2)
+              : ""
           }`
         ),
-        { padding: 1, borderColor: "red", borderStyle: "round" }
+        {
+          padding: 1,
+          borderColor: "red",
+          borderStyle: "round",
+          title: chalk.bold.hex("#FF3B30")("POSTCLI ERROR"),
+        }
       )
     );
   }
