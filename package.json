@@ -1,7 +1,7 @@
 {
   "name": "package",
   "version": "1.0.0",
-  "description": "Developer Productivity Command Line Suite",
+  "description": "PostCLI - Terminal API Request Tester",
   "homepage": "https://github.com/Souvik-Dutta12/DevGuruCLI#readme",
   "bugs": {
     "url": "https://github.com/Souvik-Dutta12/DevGuruCLI/issues"
@@ -13,17 +13,32 @@
   "license": "ISC",
   "author": "Souvik Dutta",
   "type": "module",
+  "bin": {
+    "postcli": "./bin/postcli.js"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/postcli.js",
+    "dev": "nodemon bin/postcli.js"
   },
   "dependencies": {
+    "axios": "^1.12.2",
+    "boxen": "^8.0.1",
     "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
     "commander": "^14.0.1",
+    "conf": "^15.0.2",
     "figlet": "^1.9.3",
+    "inquirer": "^12.9.6",
+    "listr2": "^9.0.4",
     "ora": "^9.0.0"
   },
-  "bin": {
-    "devguru": "./bin/devgurucli.js"
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "globals": "^16.4.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
   }
 }
