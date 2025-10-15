@@ -5,13 +5,16 @@ import FormData from "form-data";
 import fs from "fs";
 import chalk from "chalk";
 import inquirer from "inquirer";
+import { getEndPoints, resolveEnvVars } from "../utils/storage.js";
 
 export const patchCommand = new Command("PATCH")
   .description("Make a PATCH request (supports text, files, arrays, and objects)")
-  .argument("<url>", "URL to send PATCH request to.")
-  .action(async (url) => {
+  .argument("<url_or_name...>")
+  .action(async (inputs) => {
     console.log(chalk.cyan("\n📋 Fill in the PATCH request body fields:\n"));
-
+    const input = inputs.join("");
+    const endpoints = getEndPoints();
+    const endpoint = endpoints[input];
     let data = await getTableData();
 
     // 🧾 Preview before confirm
@@ -63,7 +66,8 @@ export const patchCommand = new Command("PATCH")
 
     const headers = form.getHeaders();
     console.log(chalk.yellowBright("\n🚀 Sending PATCH request...\n"));
-
+    let url = endpoint ? endpoint.url : input;
+    url = resolveEnvVars(url); // 🪄 Replace {{VAR}} with actual value
     await makeRequest({
       method: "PATCH",
       url,

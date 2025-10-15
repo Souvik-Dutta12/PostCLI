@@ -81,7 +81,7 @@ export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
           `Response:\n${chalk.hex("#CCCCCC")(JSON.stringify(response.data, null, 2))}`,
         {
           padding: 1,
-          borderColor: "#9B5DE5",
+          borderColor: "#00B868",
           borderStyle: "round",
           title: chalk.bold.hex("#FFCA36")("📦 POSTCLI RESPONSE"),
         }

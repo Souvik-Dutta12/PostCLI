@@ -10,6 +10,11 @@ import { deleteCommand } from "../src/commands/delete.js";
 import { patchCommand } from "../src/commands/patch.js";
 import { headCommand } from "../src/commands/head.js";
 import { optionsCommand } from "../src/commands/options.js";
+import { envCommand } from "../src/commands/env.js";
+import { listCommand } from "../src/commands/list.js";
+import { removeCommand } from "../src/commands/remove.js";
+import { saveCommand } from "../src/commands/save.js";
+
 
 
 console.log(
@@ -24,6 +29,7 @@ program.version('1.0.0', '-v, --version', 'output the current version');
 
 
 
+
 //commands
 program.addCommand(getCommand);
 program.addCommand(postCommand);
@@ -32,6 +38,12 @@ program.addCommand(deleteCommand);
 program.addCommand(patchCommand);
 program.addCommand(headCommand);
 program.addCommand(optionsCommand);
+
+
+program.addCommand(envCommand);
+program.addCommand(listCommand);
+program.addCommand(removeCommand);
+program.addCommand(saveCommand);
 
 
 

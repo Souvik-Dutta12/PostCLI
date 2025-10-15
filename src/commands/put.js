@@ -5,13 +5,16 @@ import FormData from "form-data";
 import fs from "fs";
 import chalk from "chalk";
 import inquirer from "inquirer";
+import { getEndPoints, resolveEnvVars } from "../utils/storage.js";
 
 export const putCommand = new Command("PUT")
   .description("Make a PUT request (supports text, files, arrays, and objects)")
-  .argument("<url>", "URL to send PUT request to.")
-  .action(async (url) => {
+  .argument("<url_or_name...>")
+  .action(async (inputs) => {
     console.log(chalk.cyan("\n📋 Fill in the PUT request body fields:\n"));
-
+    const input = inputs.join("");
+    const endpoints = getEndPoints();
+    const endpoint = endpoints[input];
     let data = await getTableData();
 
     // 🧾 Preview the data
@@ -64,7 +67,8 @@ export const putCommand = new Command("PUT")
 
     const headers = form.getHeaders();
     console.log(chalk.yellowBright("\n🚀 Sending PUT request...\n"));
-
+    let url = endpoint ? endpoint.url : input;
+    url = resolveEnvVars(url); // 🪄 Replace {{VAR}} with actual value
     await makeRequest({
       method: "PUT",
       url,
