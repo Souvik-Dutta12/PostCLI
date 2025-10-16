@@ -14,6 +14,8 @@ import { envCommand } from "../src/commands/env.js";
 import { listCommand } from "../src/commands/list.js";
 import { removeCommand } from "../src/commands/remove.js";
 import { saveCommand } from "../src/commands/save.js";
+import { historyCommand } from "../src/commands/history.js";
+import { responseCommand } from "../src/commands/response.js";
 
 
 
@@ -46,5 +48,7 @@ program.addCommand(removeCommand);
 program.addCommand(saveCommand);
 
 
+program.addCommand(historyCommand);
+program.addCommand(responseCommand)
 
 program.parse(process.argv);

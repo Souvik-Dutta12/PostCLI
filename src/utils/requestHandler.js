@@ -5,7 +5,7 @@ import ora from "ora";
 import fs from "fs";
 import { FormData, Blob } from "formdata-node";
 import { fileFromPath } from "formdata-node/file-from-path";
-
+import { addHistory } from "./history.js";
 /**
  * Make API Request with PostCLI
  * Supports GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
@@ -14,6 +14,9 @@ import { fileFromPath } from "formdata-node/file-from-path";
 
 export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
   const spinner = ora(chalk.cyanBright(`Sending ${method} request to ${url}`)).start();
+  const timeStamp = new Date().toISOString();
+  let statusCode = null;
+  let responseData = null;
 
   try {
     let isFormData = false;
@@ -59,6 +62,19 @@ export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
       maxBodyLength: Infinity,
     });
 
+    statusCode = response.status;
+    responseData = response.data;
+
+    addHistory({
+      timeStamp,
+      method,
+      url,
+      data,
+      headers,
+      statusCode,
+      response: responseData
+    })
+
     spinner.succeed(chalk.greenBright(`${method} request successful!`));
 
     const methodColors = {
@@ -90,6 +106,20 @@ export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
 
     return response.data;
   } catch (error) {
+
+    statusCode = error.response?.statusCode || 'ERR';
+    responseData = error.response?.data || error.message;
+
+    addHistory({
+      timeStamp,
+      method,
+      url,
+      data,
+      headers,
+      statusCode,
+      response: responseData
+    });
+    
     spinner.fail(chalk.redBright(`${method} request failed!`));
 
     console.log(
