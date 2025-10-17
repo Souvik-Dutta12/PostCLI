@@ -32,5 +32,15 @@ export const responseCommand = new Command("response")
       },
     ]);
 
-    saveResponse(entry.response, answers.folder, answers.filename);
+    saveResponse(
+      {
+        method: entry.method,
+        url: entry.url,
+        data: entry.data || {},
+        headers: entry.headers || {}
+      },
+      entry.response,
+      answers.folder,
+      answers.filename
+    );
   });

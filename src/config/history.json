@@ -80,5 +80,33 @@
       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
       "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
     }
+  },
+  {
+    "timeStamp": "2025-10-17T05:12:17.027Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T05:13:21.187Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
   }
 ]

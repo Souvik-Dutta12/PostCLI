@@ -16,6 +16,7 @@ import { removeCommand } from "../src/commands/remove.js";
 import { saveCommand } from "../src/commands/save.js";
 import { historyCommand } from "../src/commands/history.js";
 import { responseCommand } from "../src/commands/response.js";
+import { replayCommand } from "../src/commands/replay.js";
 
 
 
@@ -51,6 +52,6 @@ program.addCommand(saveCommand);
 
 program.addCommand(historyCommand);
 program.addCommand(responseCommand);
-
+program.addCommand(replayCommand)
 
 program.parse(process.argv);
