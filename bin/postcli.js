@@ -19,6 +19,7 @@ import { responseCommand } from "../src/commands/response.js";
 
 
 
+
 console.log(
     chalk.hex('#FF6C37').bold(
         figlet.textSync('PostCLI', { horizontalLayout: 'full' })
@@ -49,6 +50,7 @@ program.addCommand(saveCommand);
 
 
 program.addCommand(historyCommand);
-program.addCommand(responseCommand)
+program.addCommand(responseCommand);
+
 
 program.parse(process.argv);

@@ -1,1 +1,84 @@
-[]
+[
+  {
+    "timeStamp": "2025-10-17T02:39:03.741Z",
+    "method": "GET",
+    "url": "{{BASEURL}}/posts/1",
+    "data": {},
+    "headers": {},
+    "statusCode": "ERR",
+    "response": "Invalid URL"
+  },
+  {
+    "timeStamp": "2025-10-17T02:39:03.767Z",
+    "method": "POST",
+    "url": "{{BASEURL}}/posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": "ERR",
+    "response": "Invalid URL"
+  },
+  {
+    "timeStamp": "2025-10-17T02:40:18.031Z",
+    "method": "GET",
+    "url": "{{BASEURL}}/posts/1",
+    "data": {},
+    "headers": {},
+    "statusCode": "ERR",
+    "response": "Invalid URL"
+  },
+  {
+    "timeStamp": "2025-10-17T02:40:18.057Z",
+    "method": "POST",
+    "url": "{{BASEURL}}/posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": "ERR",
+    "response": "Invalid URL"
+  },
+  {
+    "timeStamp": "2025-10-17T02:41:37.174Z",
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com//posts/1",
+    "data": {},
+    "headers": {},
+    "statusCode": 200,
+    "response": {
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T02:41:37.532Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T03:02:24.724Z",
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com//posts/1",
+    "data": {},
+    "headers": {},
+    "statusCode": 200,
+    "response": {
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+  }
+]
