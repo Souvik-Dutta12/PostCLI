@@ -2,20 +2,20 @@
   "name": "postcli-dev",
   "version": "1.0.0",
   "description": "PostCLI - Terminal API Request Tester",
-  "homepage": "https://github.com/Souvik-Dutta12/DevGuruCLI#readme",
+  "homepage": "https://github.com/Souvik-Dutta12/postCLI#readme",
   "bugs": {
-    "url": "https://github.com/Souvik-Dutta12/DevGuruCLI/issues"
+    "url": "https://github.com/Souvik-Dutta12/postCLI/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Souvik-Dutta12/DevGuruCLI.git"
+    "url": "git+https://github.com/Souvik-Dutta12/postCLI.git"
   },
   "keywords": [
     "cli",
     "post",
     "automation"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "author": "Souvik Dutta",
   "type": "module",
   "bin": {
