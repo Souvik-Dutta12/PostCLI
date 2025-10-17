@@ -17,16 +17,30 @@ import { saveCommand } from "../src/commands/save.js";
 import { historyCommand } from "../src/commands/history.js";
 import { responseCommand } from "../src/commands/response.js";
 import { replayCommand } from "../src/commands/replay.js";
+import { statsCommand } from "../src/commands/stats.js";
+import { logsCommand } from "../src/commands/logs.js";
+import { clearStatsCommand } from "../src/commands/clear.js";
 
 
 
 
-console.log(
+const args = process.argv.slice(2);
+if (
+  args.length === 0 ||
+  args.includes('-h') ||
+  args.includes('--help') ||
+  args.includes('-v') ||
+  args.includes('--version')
+) {
+  console.log(
     chalk.hex('#FF6C37').bold(
-        figlet.textSync('PostCLI', { horizontalLayout: 'full' })
-      )
-)
-
+      figlet.textSync('PostCLI', { horizontalLayout: 'full' })
+    )
+  );
+  console.log(
+    chalk.hex("#FF6C37").italic("Your powerful CLI for making HTTP requests 🚀\n")
+  );
+}
 
 const program = new Command();
 program.version('1.0.0', '-v, --version', 'output the current version');
@@ -52,6 +66,23 @@ program.addCommand(saveCommand);
 
 program.addCommand(historyCommand);
 program.addCommand(responseCommand);
-program.addCommand(replayCommand)
+program.addCommand(replayCommand);
 
-program.parse(process.argv);
+program.addCommand(statsCommand);
+program.addCommand(logsCommand);
+program.addCommand(clearStatsCommand);
+
+async function runCli() {
+  try {
+    await program.parseAsync(process.argv);
+  } catch (error) {
+    if(error.name === "ExitPromptError") {
+      console.log("\nOperation cancelled by user.");
+      process.exit(0);
+    } else {
+      console.error(chalk.red("\nAn error occurred:"), err.message || err);
+      process.exit(1); // exit with error code
+    }
+  }
+};
+runCli();

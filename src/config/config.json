@@ -1,11 +1,6 @@
 {
   "endpoints": {
-    "Test1": {
-      "method": "POST",
-      "url": "{{BASEURL}}/posts"
-    }
   },
   "env": {
-    "BASEURL": "https://jsonplaceholder.typicode.com/"
   }
 }

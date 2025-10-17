@@ -12,6 +12,7 @@ import { addHistory } from "./history.js";
  * Auto-detects file uploads using "file:" prefix → multipart/form-data
  */
 
+
 export const makeRequest = async ({ method, url, data = {}, headers = {} }) => {
   const spinner = ora(chalk.cyanBright(`Sending ${method} request to ${url}`)).start();
   const timeStamp = new Date().toISOString();

@@ -19,8 +19,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bin/postcli.js",
-    "dev": "nodemon bin/postcli.js"
+    "start": "node ./bin/postcli.js"
   },
   "dependencies": {
     "axios": "^1.12.2",
@@ -41,7 +40,6 @@
     "@eslint/js": "^9.37.0",
     "eslint": "^9.37.0",
     "globals": "^16.4.0",
-    "nodemon": "^3.1.10",
-    "prettier": "^3.6.2"
+    "nodemon": "^3.1.10"
   }
 }

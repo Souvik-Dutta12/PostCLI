@@ -1,46 +1,84 @@
 [
   {
-    "timeStamp": "2025-10-17T02:39:03.741Z",
-    "method": "GET",
-    "url": "{{BASEURL}}/posts/1",
-    "data": {},
+    "timeStamp": "2025-10-17T05:49:46.032Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
     "headers": {},
-    "statusCode": "ERR",
-    "response": "Invalid URL"
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
   },
   {
-    "timeStamp": "2025-10-17T02:39:03.767Z",
+    "timeStamp": "2025-10-17T05:51:03.611Z",
     "method": "POST",
-    "url": "{{BASEURL}}/posts",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T05:51:03.611Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
     "data": {
       "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
     },
     "headers": {},
     "statusCode": "ERR",
-    "response": "Invalid URL"
+    "response": "Converting circular structure to JSON\n    --> starting at object with constructor 'ClientRequest'\n    |     property 'res' -> object with constructor 'IncomingMessage'\n    --- property 'req' closes the circle"
   },
   {
-    "timeStamp": "2025-10-17T02:40:18.031Z",
-    "method": "GET",
-    "url": "{{BASEURL}}/posts/1",
-    "data": {},
-    "headers": {},
-    "statusCode": "ERR",
-    "response": "Invalid URL"
-  },
-  {
-    "timeStamp": "2025-10-17T02:40:18.057Z",
+    "timeStamp": "2025-10-17T05:51:20.186Z",
     "method": "POST",
-    "url": "{{BASEURL}}/posts",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T05:51:20.186Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
     "data": {
       "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
     },
     "headers": {},
     "statusCode": "ERR",
-    "response": "Invalid URL"
+    "response": "Cannot read properties of undefined (reading 'split')"
   },
   {
-    "timeStamp": "2025-10-17T02:41:37.174Z",
+    "timeStamp": "2025-10-17T05:51:33.143Z",
+    "method": "POST",
+    "url": "https://jsonplaceholder.typicode.com//posts",
+    "data": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
+    },
+    "headers": {},
+    "statusCode": 201,
+    "response": {
+      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
+      "id": 101
+    }
+  },
+  {
+    "timeStamp": "2025-10-17T06:13:35.814Z",
     "method": "GET",
     "url": "https://jsonplaceholder.typicode.com//posts/1",
     "data": {},
@@ -54,21 +92,7 @@
     }
   },
   {
-    "timeStamp": "2025-10-17T02:41:37.532Z",
-    "method": "POST",
-    "url": "https://jsonplaceholder.typicode.com//posts",
-    "data": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
-    },
-    "headers": {},
-    "statusCode": 201,
-    "response": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
-      "id": 101
-    }
-  },
-  {
-    "timeStamp": "2025-10-17T03:02:24.724Z",
+    "timeStamp": "2025-10-17T06:14:07.471Z",
     "method": "GET",
     "url": "https://jsonplaceholder.typicode.com//posts/1",
     "data": {},
@@ -82,31 +106,31 @@
     }
   },
   {
-    "timeStamp": "2025-10-17T05:12:17.027Z",
-    "method": "POST",
-    "url": "https://jsonplaceholder.typicode.com//posts",
-    "data": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
-    },
+    "timeStamp": "2025-10-17T06:15:01.479Z",
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com//posts/1",
+    "data": {},
     "headers": {},
-    "statusCode": 201,
+    "statusCode": 200,
     "response": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
-      "id": 101
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
     }
   },
   {
-    "timeStamp": "2025-10-17T05:13:21.187Z",
-    "method": "POST",
-    "url": "https://jsonplaceholder.typicode.com//posts",
-    "data": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md"
-    },
+    "timeStamp": "2025-10-17T06:28:11.108Z",
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com//posts/1",
+    "data": {},
     "headers": {},
-    "statusCode": 201,
+    "statusCode": 200,
     "response": {
-      "img": "C:\\Users\\debas\\OneDrive\\Desktop\\Web Development\\PROJECT\\PostCLI\\README.md",
-      "id": 101
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
     }
   }
 ]
